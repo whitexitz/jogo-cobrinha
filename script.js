@@ -17,23 +17,22 @@ let velocidade = 100;
 let jogoAcabou = false;
 let pontuacao = 0;
 const appleImage = new Image();
-appleImage.src = 'apple.png'; // Garanta que a imagem esteja na mesma pasta
+appleImage.src = 'apple.png';
 
 function desenharCobrinha() {
     cobrinha.forEach((bloco, index) => {
         if (index === 0) {
-            ctx.fillStyle = '#00FF00'; // Cabeça verde neon
+            ctx.fillStyle = '#00FF00';
             ctx.beginPath();
             ctx.arc(bloco.x * tamanhoBloco + tamanhoBloco / 2, bloco.y * tamanhoBloco + tamanhoBloco / 2, tamanhoBloco / 2, 0, 2 * Math.PI);
             ctx.fill();
-            // Olhos
             ctx.fillStyle = 'black';
             ctx.beginPath();
             ctx.arc(bloco.x * tamanhoBloco + tamanhoBloco / 4, bloco.y * tamanhoBloco + tamanhoBloco / 3, 2, 0, 2 * Math.PI);
             ctx.arc(bloco.x * tamanhoBloco + tamanhoBloco * 3 / 4, bloco.y * tamanhoBloco + tamanhoBloco / 3, 2, 0, 2 * Math.PI);
             ctx.fill();
         } else {
-            ctx.fillStyle = '#00CC00'; // Corpo verde escuro
+            ctx.fillStyle = '#00CC00';
             ctx.beginPath();
             ctx.arc(bloco.x * tamanhoBloco + tamanhoBloco / 2, bloco.y * tamanhoBloco + tamanhoBloco / 2, tamanhoBloco / 2, 0, 2 * Math.PI);
             ctx.fill();
@@ -68,6 +67,7 @@ function atualizar() {
         };
         pontuacao += 10;
         pontuacaoDisplay.textContent = 'Pontuação: ' + pontuacao;
+        velocidade = Math.max(50, velocidade - 5); // Aumenta a velocidade
     } else {
         cobrinha.pop();
     }
@@ -94,4 +94,4 @@ document.addEventListener('keydown', (event) => {
         case 'ArrowLeft': if (direcaoX !== 1) { direcaoX = -1; direcaoY = 0; } break;
         case 'ArrowRight': if (direcaoX !== -1) { direcaoX = 1; direcaoY = 0; } break;
     }
-}); 
+});
