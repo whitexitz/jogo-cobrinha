@@ -67,7 +67,7 @@ function atualizar() {
         };
         pontuacao += 10;
         pontuacaoDisplay.textContent = 'Pontuação: ' + pontuacao;
-        velocidade = Math.max(50, velocidade - 5); // Aumenta a velocidade
+        velocidade = Math.max(50, velocidade - 5);
     } else {
         cobrinha.pop();
     }
