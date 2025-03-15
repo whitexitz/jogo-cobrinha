@@ -2,7 +2,6 @@ const canvas = document.getElementById('cobrinhaCanvas');
 const ctx = canvas.getContext('2d');
 const pontuacaoDisplay = document.getElementById('pontuacao');
 
-// Ajuste para tela cheia
 canvas.width = window.innerWidth * 0.8;
 canvas.height = window.innerHeight * 0.8;
 
@@ -19,15 +18,26 @@ let jogoAcabou = false;
 let pontuacao = 0;
 
 function desenharCobrinha() {
-    ctx.fillStyle = '#00FF00'; // Cobrinha verde neon
-    cobrinha.forEach(bloco => {
-        ctx.fillRect(bloco.x * tamanhoBloco, bloco.y * tamanhoBloco, tamanhoBloco, tamanhoBloco);
+    cobrinha.forEach((bloco, index) => {
+        if (index === 0) {
+            // Cabeça da cobrinha
+            ctx.fillStyle = '#00FF00'; // Verde neon
+            ctx.beginPath();
+            ctx.arc(bloco.x * tamanhoBloco + tamanhoBloco / 2, bloco.y * tamanhoBloco + tamanhoBloco / 2, tamanhoBloco / 2, 0, 2 * Math.PI);
+            ctx.fill();
+        } else {
+            // Corpo da cobrinha
+            ctx.fillStyle = '#00CC00'; // Verde mais escuro
+            ctx.fillRect(bloco.x * tamanhoBloco, bloco.y * tamanhoBloco, tamanhoBloco, tamanhoBloco);
+        }
     });
 }
 
 function desenharComida() {
-    ctx.fillStyle = '#FF0000'; // Comida vermelha neon
-    ctx.fillRect(comida.x * tamanhoBloco, comida.y * tamanhoBloco, tamanhoBloco, tamanhoBloco);
+    ctx.fillStyle = '#FF0000'; // Vermelho neon
+    ctx.beginPath();
+    ctx.arc(comida.x * tamanhoBloco + tamanhoBloco / 2, comida.y * tamanhoBloco + tamanhoBloco / 2, tamanhoBloco / 2, 0, 2 * Math.PI);
+    ctx.fill();
 }
 
 function atualizar() {
