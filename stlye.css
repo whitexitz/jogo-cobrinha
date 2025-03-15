@@ -3,16 +3,18 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: #222; /* Fundo escuro */
     margin: 0;
+    color: white; /* Texto branco */
 }
 
 #cobrinhaCanvas {
-    border: 1px solid black;
+    border: 2px solid white;
     display: block;
+    background-color: #111; /* Fundo do canvas escuro */
 }
 
 #pontuacao {
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 24px;
 }

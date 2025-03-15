@@ -2,6 +2,10 @@ const canvas = document.getElementById('cobrinhaCanvas');
 const ctx = canvas.getContext('2d');
 const pontuacaoDisplay = document.getElementById('pontuacao');
 
+// Ajuste para tela cheia
+canvas.width = window.innerWidth * 0.8;
+canvas.height = window.innerHeight * 0.8;
+
 const tamanhoBloco = 20;
 const blocosX = canvas.width / tamanhoBloco;
 const blocosY = canvas.height / tamanhoBloco;
@@ -10,19 +14,19 @@ let cobrinha = [{ x: 10, y: 10 }];
 let direcaoX = 1;
 let direcaoY = 0;
 let comida = { x: 5, y: 5 };
-let velocidade = 100; // milissegundos
+let velocidade = 100;
 let jogoAcabou = false;
 let pontuacao = 0;
 
 function desenharCobrinha() {
-    ctx.fillStyle = 'green';
+    ctx.fillStyle = '#00FF00'; // Cobrinha verde neon
     cobrinha.forEach(bloco => {
         ctx.fillRect(bloco.x * tamanhoBloco, bloco.y * tamanhoBloco, tamanhoBloco, tamanhoBloco);
     });
 }
 
 function desenharComida() {
-    ctx.fillStyle = 'red';
+    ctx.fillStyle = '#FF0000'; // Comida vermelha neon
     ctx.fillRect(comida.x * tamanhoBloco, comida.y * tamanhoBloco, tamanhoBloco, tamanhoBloco);
 }
 
