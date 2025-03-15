@@ -89,4 +89,4 @@ document.addEventListener('keydown', (event) => {
         case 'ArrowLeft': if (direcaoX !== 1) { direcaoX = -1; direcaoY = 0; } break;
         case 'ArrowRight': if (direcaoX !== -1) { direcaoX = 1; direcaoY = 0; } break;
     }
-});
+}); 
